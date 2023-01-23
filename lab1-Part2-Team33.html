@@ -105,27 +105,35 @@
                 const element = array[index];
                 $("tbody").append(`
                     <tr>
-                    <td>
-                        <input type='radio' id='${element.name}' name='${element.name}' checked='checked' value='Show'>
+                    <td class='left-align'>
+                        <input type='radio' id='${element.name.replace(/\s+/g, "")}-show' name='${element.name}' checked='checked' value='Show'>
                         <label>Show</label>
-                        <input type='radio' id='${element.name}' name='${element.name}' value='Hide'>
+                        <br/>
+                        <input type='radio' id='${element.name.replace(/\s+/g, "")}-hide' name='${element.name}' value='Hide'>
                         <label>Hide</label>
+                        <br/>
+                        <input type='radio' id='${element.name.replace(/\s+/g, "")}-info-show' name='${element.name}-info' checked='checked' value='Show'>
+                        <label>Show Info</label>
+                        <br/>
+                        <input type='radio' id='${element.name.replace(/\s+/g, "")}-info-hide' name='${element.name}-info' value='Hide'>
+                        <label>Hide Info</label>
+                        <br/>
                     </td>
                     <td>
-                        <img class='${element.name}' src='${element.url}'
+                        <img class='${element.name.replace(/\s+/g, "")}' src='${element.url}'
                             alt='${element.name}' />
                     </td>
                     <td>
-                        <p>${element.name}</p>
+                        <p class='${element.name.replace(/\s+/g, "")}'>${element.name}</p>
                     </td>
                     <td>
-                        <p>${element.company}</p>
+                        <p class='${element.name.replace(/\s+/g, "")}'>${element.company}</p>
                     </td>
                     <td>
-                        <p>${element.year}</p>
+                        <p class='${element.name.replace(/\s+/g, "")}'>${element.year}</p>
                     </td>
                     <td>
-                        <p>${element.type}</p>
+                        <p class='${element.name.replace(/\s+/g, "")}'>${element.type}</p>
                     </td>
                     <td>
                         <button class="btn btn-primary" type="button">Archive</button>
@@ -134,21 +142,19 @@
                         <button class="btn btn-primary" type="button">Collection</button>
                     </td>
                 </tr>`);
-            }
-            for (let index = 0; index < array.length; index++) {
-                const element = array[index];
-                $(`input.${element.name}`).change(function() {
-                    console.log(`${element.name}`);
-                    if(this.value == "Show")
-                    {
-                        $(`img.${element.name}`).fadeIn();
-                        console.log(`${element.name}`);
-                    }
-                    else if(this.value == "Hide")
-                    {
-                        $(`img.${element.name}`).fadeOut();
-                        console.log(`${element.name}`);
-                    }
+                $(document).on("change", `input#${element.name.replace(/\s+/g, "")}-show`, function(){
+                    console.log("test");
+                    $(`img.${element.name.replace(/\s+/g, "")}`).fadeIn();
+                });
+                $(document).on("change", `input#${element.name.replace(/\s+/g, "")}-hide`, function(){
+                    $(`img.${element.name.replace(/\s+/g, "")}`).fadeOut();
+                });
+                $(document).on("change", `input#${element.name.replace(/\s+/g, "")}-info-show`, function(){
+                    console.log("test");
+                    $(`p.${element.name.replace(/\s+/g, "")}`).fadeIn();
+                });
+                $(document).on("change", `input#${element.name.replace(/\s+/g, "")}-info-hide`, function(){
+                    $(`p.${element.name.replace(/\s+/g, "")}`).fadeOut();
                 });
             }
         });

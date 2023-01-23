@@ -11,3 +11,6 @@ tbody, td, tfoot, th, thead, tr{
 td {
     padding: 10px;
 }
+.left-align{
+    text-align: left;
+}

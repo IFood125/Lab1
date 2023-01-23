@@ -105,14 +105,14 @@
                 const element = array[index];
                 $("tbody").append(`
                     <tr>
-                    <td>
-                        <input type='radio' id='${element.name}' name='${element.name}' value='Show'>
+                    <td class='left-align'>
+                        <input type='radio' id='${element.name.replace(/\s+/g, "")}-show' checked='checked' name='${element.name}' value='Show'>
                         <label>Show</label>
-                        <input type='radio' id='${element.name}' name='${element.name}' value='Hide'>
+                        <input type='radio' id='${element.name.replace(/\s+/g, "")}-hide' name='${element.name}' value='Hide'>
                         <label>Hide</label>
                     </td>
                     <td>
-                        <img src='${element.url}'
+                        <img class='${element.name.replace(/\s+/g, "")}' src='${element.url}'
                             alt='${element.name}' />
                     </td>
                     <td>
