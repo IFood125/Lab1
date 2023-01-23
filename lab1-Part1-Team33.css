@@ -1,0 +1,13 @@
+img{
+    width: 150px;
+    height: 125px;
+}
+tr{
+    text-align: center;
+}
+tbody, td, tfoot, th, thead, tr{
+    border-width: 2px;
+}
+td {
+    padding: 10px;
+}

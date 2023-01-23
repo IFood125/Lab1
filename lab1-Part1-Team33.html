@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./lab1-Part1-Team33.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    </script>
+    <title>Electronics-Center</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            const array = [
+                {
+                    "name": "Macbook Air",
+                    "company": "Apple",
+                    "year": "2020",
+                    "type": "Laptop",
+                    "url": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSqI6lRt1QKUJe3lI9LCTpa_h46lAWh1Pn0yXnXdF5-gCSs3rrn"
+                },
+                {
+                    "name": "Asus G14 2022",
+                    "company": "Asus",
+                    "year": "2022",
+                    "type": "Laptop",
+                    "url": "https://dlcdnwebimgs.asus.com/gain/BD2625F4-8B54-4659-B2B7-6D9F4ACCB712/w250"
+                },
+                {
+                    "name": "Legion Slim 7",
+                    "company": "Lenovo",
+                    "year": "2022",
+                    "type": "Laptop",
+                    "url": "https://p2-ofp.static.pub/ShareResource/na/subseries/hero/lenovo-legion-7i-hero.png"
+                },
+                {
+                    "name": "Lenovo Chromebook Duet 5",
+                    "company": "Lenovo",
+                    "year": "2022",
+                    "type": "Notebook",
+                    "url": "https://lh3.googleusercontent.com/-YIsNY_FmHskf_cGJ_cYQJPu-4PR9Ujmh9a0Ka5os1uohNDqwbsmaZ1yA7KB1Ufy_M7UaYbCaphMrkv9DAs-OYU-cXDfFlee3YMiHbz0XpHLIDf5eCRd=w1440-rw"
+                },
+                {
+                    "name": "Acer Chromebook Spin 713",
+                    "company": "Acer",
+                    "year": "2021",
+                    "type": "Notebook",
+                    "url": "https://lh3.googleusercontent.com/Osghbmp3iU3bJmcwViABmdnFVMplwgR5-IHzM9lbROCbLHMrukKXPTcfPX5CI7MVAAU8ec3qLlwaE3jac9Xwf_EWGa2IR-cqXFzRoaeAEMnmsIWmRt0=w1440-rw"
+                },
+                {
+                    "name": "HP Chromebook x360 14c",
+                    "company": "HP",
+                    "year": "2022",
+                    "type": "Notebook",
+                    "url": "https://lh3.googleusercontent.com/VuEHPwq-oIRvPhNfx7Y5dbEiWaPkFFJjnmz5rXs1aP1Vjm8l2ayMBWQoonUXWGlZ1mBS8IUl9EI7FX_3lGtYG8-ZTVD7Jd22S4JIGL2utgWTe_qnbGqk=w1440-rw"
+                },
+                {
+                    "name": "IPad 10th Gen",
+                    "company": "Apple",
+                    "year": "2022",
+                    "type": "Tablet",
+                    "url": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-2022-hero-silver-wifi-select_FMT_WHH?wid=940&hei=1112&fmt=png-alpha&.v=1664387253605"
+                },
+                {
+                    "name": "Samsung Tab S8",
+                    "company": "Samsung",
+                    "year": "2022",
+                    "type": "Tablet",
+                    "url": "https://images.samsung.com/ca/galaxy-tab-s8/feature/galaxy-tab-s8-ultra-graphite-kv-mo.jpg"
+                },
+                {
+                    "name": "Microsoft Surface Pro 8",
+                    "company": "Microsoft",
+                    "year": "2021",
+                    "type": "Tablet",
+                    "url": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTLNd-950xOqal2Jrb3tLexEVK-zLRXl914zU7WaY_d0h3npNDFzkeJeH4UEbKJxGacq0ZX0MfHfJWLbHL4biifo2PqqShuJQ"
+                },
+                {
+                    "name": "Samsung Galaxy S22 Ultra",
+                    "company": "Samsung",
+                    "year": "2022",
+                    "type": "Cellphone",
+                    "url": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT5ZjIR2Zye6IC2fJ2tY0BPDhYTuRLsOSMaimlwqbYp3O0_TwPHooSQLeCYbo3RvsehWILGbGwc7T61gOqFhSYw-XUtE3Q2"
+                },
+                {
+                    "name": "Google Pixel 7",
+                    "company": "Google",
+                    "year": "2022",
+                    "type": "Cellphone",
+                    "url": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTeyByJlewpp-FYbEN2gR54qYtVvHorjVvOQdnAWMSwBGR1ATV6eGRBDQIV2OozCVu6TEKn1PRXfZ_omor7aQfEZwsdDd0R"
+                },
+                {
+                    "name": "Samsung Galaxy S22 Ultra",
+                    "company": "Samsung",
+                    "year": "2021",
+                    "type": "Cellphone",
+                    "url": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT3-1cEW_DSV4BODK_ZXuXvi9QyWlMk3gpFQpr2Jbce_WylBIjvADBVBFMLX-qzwvefXss56Vh9EiyIMRG-AHn1r3Rhumw9Lw"
+                }
+            ];
+            for (let index = 0; index < array.length; index++) {
+                const element = array[index];
+                $("tbody").append(`
+                    <tr>
+                    <td>
+                        <input type='radio' id='${element.name}' name='${element.name}' value='Show'>
+                        <label>Show</label>
+                        <input type='radio' id='${element.name}' name='${element.name}' value='Hide'>
+                        <label>Hide</label>
+                    </td>
+                    <td>
+                        <img src='${element.url}'
+                            alt='${element.name}' />
+                    </td>
+                    <td>
+                        <p>${element.name}</p>
+                    </td>
+                    <td>
+                        <p>${element.company}</p>
+                    </td>
+                    <td>
+                        <p>${element.year}</p>
+                    </td>
+                    <td>
+                        <p>${element.type}</p>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" type="button">Archive</button>
+                        <button class="btn btn-primary" type="button">Edit</button>
+                        <button class="btn btn-primary" type="button">Delete</button>
+                        <button class="btn btn-primary" type="button">Collection</button>
+                    </td>
+                </tr>`);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <input type="text"></input>
+    </div>
+    <div>
+        <label for="Action">Action: </label>
+        <select name="Action" id="Action">
+            <option value="archive">Archive</option>
+            <option value="edit">Edit</option>
+            <option value="delete">Delete</option>
+            <option value="collection">Collection</option>
+        </select>
+        <label for="Type">Type: </label>
+        <select name="Type" id="Type">
+            <option value="laptop">LapTop</option>
+            <option value="notebook">NoteBook</option>
+            <option value="tablet">Tablet</option>
+            <option value="cellphone">CellPhone</option>
+        </select>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>
+                    
+                </th>
+                <th>
+                    Image
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Company
+                </th>
+                <th>
+                    Year
+                </th>
+                <th>
+                    Type
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
