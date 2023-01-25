@@ -1,6 +1,7 @@
 img{
     width: 150px;
     height: 125px;
+    opacity: 0.4;
 }
 tr{
     text-align: center;
@@ -13,4 +14,7 @@ td {
 }
 .left-align{
     text-align: left;
+}
+tr{
+    position: relative;
 }

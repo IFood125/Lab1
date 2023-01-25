@@ -104,7 +104,7 @@
             for (let index = 0; index < array.length; index++) {
                 const element = array[index];
                 $("tbody").append(`
-                    <tr>
+                    <tr class='${element.name.replace(/\s+/g, "")}'>
                     <td class='left-align'>
                         <input type='radio' id='${element.name.replace(/\s+/g, "")}-show' name='${element.name}' checked='checked' value='Show'>
                         <label>Show</label>
@@ -156,6 +156,20 @@
                 $(document).on("change", `input#${element.name.replace(/\s+/g, "")}-info-hide`, function(){
                     $(`p.${element.name.replace(/\s+/g, "")}`).fadeOut();
                 });
+                $(document).on("mouseenter", `tr.${element.name.replace(/\s+/g, "")}`, function(){
+                    $(`img.${element.name.replace(/\s+/g, "")}`).animate({
+                        height: '+=30px',
+                        width: '+= 30px',
+                        opacity: '1'
+                    })
+                })
+                $(document).on("mouseleave", `tr.${element.name.replace(/\s+/g, "")}`, function(){
+                    $(`img.${element.name.replace(/\s+/g, "")}`).animate({
+                        height: '-=30px',
+                        width: '-= 30px',
+                        opacity: '0.4'
+                    })
+                })
             }
         });
     </script>
